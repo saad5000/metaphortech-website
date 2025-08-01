@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real Estate AI Automation | Metaphortech Inc.</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Transform your real estate business with AI automation. Streamline property inquiries, enhance client management, and optimize sales processes with intelligent solutions.">
+  <meta name="keywords" content="real estate automation, property management AI, client relationship automation, real estate technology, property sales automation">
+  <meta name="author" content="Metaphortech Inc.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Real Estate AI Automation | Metaphortech Inc.">
+  <meta property="og:description" content="Transform your real estate business with AI automation. Streamline property inquiries and enhance client management.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://metaphortech.com/solutions/real-estate">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00d4ff;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: #a0a0a0;
+      margin-bottom: 2rem;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #fff;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: #00d4ff;
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: #00d4ff;
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .feature-description {
+      color: #a0a0a0;
+      line-height: 1.6;
+    }
+
+    /* Stats Section */
+    .stats {
+      background: rgba(0, 212, 255, 0.05);
+      padding: 4rem 0;
+      margin: 4rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 1rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #00d4ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #a0a0a0;
+      font-weight: 500;
+    }
+
+    /* CTA Section */
+    .cta {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+    }
+
+    /* Compliance Section */
+    .compliance {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 3rem 0;
+      margin-top: 4rem;
+    }
+
+    .compliance-content {
+      text-align: center;
+    }
+
+    .compliance-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #00d4ff;
+    }
+
+    .compliance-text {
+      color: #a0a0a0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <a href="../index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Back to Solutions
+      </a>
+      <h1 class="hero-title">Real Estate AI Automation</h1>
+      <p class="hero-subtitle">Transform your real estate business with intelligent automation and enhanced client experiences</p>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="container">
+      <h2 class="section-title">Comprehensive Real Estate Solutions</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3 class="feature-title">Property Inquiries</h3>
+          <p class="feature-description">Automated property inquiry handling with intelligent lead qualification, instant responses, and follow-up scheduling.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3 class="feature-title">Viewing Scheduling</h3>
+          <p class="feature-description">Smart appointment booking with automated scheduling, confirmation reminders, and calendar integration.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-percentage"></i>
+          </div>
+          <h3 class="feature-title">Mortgage Prequalification</h3>
+          <p class="feature-description">Automated mortgage prequalification with document collection, credit analysis, and lender coordination.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3 class="feature-title">Market Analysis</h3>
+          <p class="feature-description">AI-powered market analysis with comparative pricing, trend analysis, and investment opportunity identification.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="feature-title">Client Relationship Management</h3>
+          <p class="feature-description">Comprehensive CRM with automated follow-ups, client segmentation, and personalized communication.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <h3 class="feature-title">Document Automation</h3>
+          <p class="feature-description">Automated document generation for contracts, agreements, and legal paperwork with digital signatures.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3 class="feature-title">Virtual Tours</h3>
+          <p class="feature-description">AI-enhanced virtual tour scheduling, 360-degree property showcases, and interactive property exploration.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h3 class="feature-title">Marketing Automation</h3>
+          <p class="feature-description">Automated marketing campaigns, social media management, and lead nurturing across multiple channels.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3 class="feature-title">Financial Calculators</h3>
+          <p class="feature-description">Interactive mortgage calculators, ROI analysis, and investment property evaluation tools.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="feature-title">Compliance Management</h3>
+          <p class="feature-description">Automated compliance tracking, regulatory updates, and legal requirement monitoring.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="feature-title">Performance Analytics</h3>
+          <p class="feature-description">Comprehensive analytics for sales performance, lead conversion, and market trends.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="feature-title">Mobile App Integration</h3>
+          <p class="feature-description">Mobile apps for agents and clients with real-time updates, notifications, and property search.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">60%</div>
+          <div class="stat-label">Faster Lead Response</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">40%</div>
+          <div class="stat-label">Increase in Sales</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">80%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Lead Generation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="container">
+      <h2 class="section-title">Ready to Transform Your Real Estate Business?</h2>
+      <p style="color: #a0a0a0; margin-bottom: 2rem; font-size: 1.1rem;">Join leading real estate professionals across Canada in the AI automation revolution</p>
+      <a href="../index.html#contact" class="btn">Get Started Today</a>
+    </div>
+  </div>
+
+  <div class="compliance">
+    <div class="container">
+      <div class="compliance-content">
+        <h3 class="compliance-title">Canadian Standards Compliance</h3>
+        <p class="compliance-text">Our real estate automation solutions are built with Canadian data protection standards in mind, ensuring full compliance with PIPEDA, real estate regulations, and provincial privacy laws. All data is stored securely in Canadian data centers with 24/7 monitoring and support.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

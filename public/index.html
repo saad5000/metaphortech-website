@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metaphortech Inc. | AI Workflow Automation Solutions</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Transform your business with Metaphortech's AI workflow automation solutions. Streamline operations, reduce costs, and accelerate growth across automotive, healthcare, finance, and more industries.">
+  <meta name="keywords" content="AI automation, workflow automation, business automation, AI solutions, process automation, artificial intelligence, machine learning, business efficiency, digital transformation">
+  <meta name="author" content="Metaphortech Inc.">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Metaphortech Inc. | AI Workflow Automation Solutions">
+  <meta property="og:description" content="Transform your business with AI-powered workflow automation. Streamline operations and accelerate growth across all industries.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://metaphortech.com">
+  <meta property="og:image" content="https://metaphortech.com/images/og-image.jpg">
+  <meta property="og:site_name" content="Metaphortech Inc.">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Metaphortech Inc. | AI Workflow Automation">
+  <meta name="twitter:description" content="Transform your business with AI-powered workflow automation solutions.">
+  <meta name="twitter:image" content="https://metaphortech.com/images/twitter-card.jpg">
+  
+  <!-- Additional Meta Tags -->
+  <meta name="theme-color" content="#00d4ff">
+  <meta name="msapplication-TileColor" content="#00d4ff">
+  <link rel="canonical" href="https://metaphortech.com">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00d4ff;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+      overflow: hidden;
+    }
+
+    /* AI Agent Network Node */
+    .ai-agent {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      z-index: 1;
+    }
+
+    .ai-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, #00d4ff 0%, #0099cc 50%, transparent 100%);
+      border-radius: 50%;
+      box-shadow: 
+        0 0 30px rgba(0, 212, 255, 0.8),
+        0 0 60px rgba(0, 212, 255, 0.4),
+        0 0 90px rgba(0, 212, 255, 0.2);
+      animation: aiPulse 3s ease-in-out infinite;
+    }
+
+    .ai-rings {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      border-radius: 50%;
+      animation: aiRotate 10s linear infinite;
+    }
+
+    .ai-rings::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 240px;
+      height: 240px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 50%;
+      animation: aiRotate 15s linear infinite reverse;
+    }
+
+    .ai-rings::after {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: 50%;
+      animation: aiRotate 20s linear infinite;
+    }
+
+    /* Holographic Company Logos */
+    .holographic-logos {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .logo-item {
+      position: absolute;
+      opacity: 0.1;
+      filter: blur(1px);
+      animation: logoFloat 8s ease-in-out infinite;
+    }
+
+    .logo-item:nth-child(1) {
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .logo-item:nth-child(2) {
+      top: 15%;
+      right: 15%;
+      animation-delay: 1s;
+    }
+
+    .logo-item:nth-child(3) {
+      bottom: 25%;
+      left: 20%;
+      animation-delay: 2s;
+    }
+
+    .logo-item:nth-child(4) {
+      bottom: 20%;
+      right: 10%;
+      animation-delay: 3s;
+    }
+
+    .logo-item:nth-child(5) {
+      top: 60%;
+      left: 5%;
+      animation-delay: 4s;
+    }
+
+    .logo-item:nth-child(6) {
+      top: 40%;
+      right: 5%;
+      animation-delay: 5s;
+    }
+
+    /* Stylized Cityscape */
+    .cityscape {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to top, 
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%);
+      z-index: 0;
+    }
+
+    .cityscape::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background-image: 
+        linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.1) 50%, transparent 100%),
+        repeating-linear-gradient(90deg, 
+          transparent 0px, 
+          transparent 20px, 
+          rgba(0, 212, 255, 0.05) 20px, 
+          rgba(0, 212, 255, 0.05) 22px);
+      animation: cityScan 4s linear infinite;
+    }
+
+    /* Flowing Code Lines */
+    .code-lines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    .code-line {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+      animation: codeFlow 6s linear infinite;
+    }
+
+    .code-line:nth-child(1) {
+      top: 20%;
+      width: 100px;
+      animation-delay: 0s;
+    }
+
+    .code-line:nth-child(2) {
+      top: 40%;
+      width: 150px;
+      animation-delay: 1s;
+    }
+
+    .code-line:nth-child(3) {
+      top: 60%;
+      width: 80px;
+      animation-delay: 2s;
+    }
+
+    .code-line:nth-child(4) {
+      top: 80%;
+      width: 120px;
+      animation-delay: 3s;
+    }
+
+    .code-line:nth-child(5) {
+      top: 30%;
+      width: 90px;
+      animation-delay: 4s;
+    }
+
+    .code-line:nth-child(6) {
+      top: 70%;
+      width: 110px;
+      animation-delay: 5s;
+    }
+
+    /* Animations */
+    @keyframes aiPulse {
+      0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 30px rgba(0, 212, 255, 0.8),
+          0 0 60px rgba(0, 212, 255, 0.4),
+          0 0 90px rgba(0, 212, 255, 0.2);
+      }
+      50% { 
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 
+          0 0 40px rgba(0, 212, 255, 1),
+          0 0 80px rgba(0, 212, 255, 0.6),
+          0 0 120px rgba(0, 212, 255, 0.3);
+      }
+    }
+
+    @keyframes aiRotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { 
+        transform: translateY(0px) scale(1);
+        opacity: 0.1;
+      }
+      50% { 
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.2;
+      }
+    }
+
+    @keyframes cityScan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    @keyframes codeFlow {
+      0% { 
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      50% { 
+        opacity: 1;
+      }
+      100% { 
+        transform: translateX(100vw);
+        opacity: 0;
+      }
+    }
+
+    /* New Section Animations */
+    @keyframes particleFloat {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-100px); }
+    }
+
+    @keyframes cardGlow {
+      0%, 100% { 
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% { 
+        transform: scale(1.1);
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes networkFlow {
+      0% { transform: translateX(0) translateY(0); }
+      25% { transform: translateX(-10px) translateY(-5px); }
+      50% { transform: translateX(0) translateY(-10px); }
+      75% { transform: translateX(10px) translateY(-5px); }
+      100% { transform: translateX(0) translateY(0); }
+    }
+
+    @keyframes connectionPulse {
+      0%, 100% { 
+        width: 0;
+        height: 0;
+        opacity: 0;
+      }
+      50% { 
+        width: 100%;
+        height: 2px;
+        opacity: 1;
+      }
+    }
+
+
+
+
+
+    @keyframes dotFloat {
+      0%, 100% { 
+        transform: translateY(0px) scale(1);
+        opacity: 0.6;
+      }
+      50% { 
+        transform: translateY(-10px) scale(1.2);
+        opacity: 1;
+      }
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+      animation: pulse 4s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.6; }
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 0 2rem;
+      z-index: 10;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #a0a0a0;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      border-color: #00d4ff;
+      color: #00d4ff;
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    .section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #a0a0a0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Services Grid with Glowing Particles */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    /* Glowing Particles Animation */
+    .services-grid::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, #00d4ff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(0, 212, 255, 0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #00d4ff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(0, 212, 255, 0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #00d4ff, transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: particleFloat 20s linear infinite;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Individual particle effects for each card */
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+      animation: cardGlow 4s ease-in-out infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-card:hover::after {
+      opacity: 1;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00d4ff, #0099cc);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: #00d4ff;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .service-description {
+      color: #a0a0a0;
+      line-height: 1.6;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.1) 100%);
+      border-color: #00d4ff;
+      transform: scale(1.05);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .pricing-card.featured:hover {
+      transform: scale(1.05) translateY(-8px);
+    }
+
+    .pricing-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #00d4ff;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .pricing-features li {
+      padding: 0.5rem 0;
+      color: #a0a0a0;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: #00d4ff;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    /* Team with Interconnected Lines */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    /* Interconnected Lines Animation */
+    .team-grid::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(45deg, transparent 40%, rgba(0, 212, 255, 0.1) 50%, transparent 60%),
+        linear-gradient(-45deg, transparent 40%, rgba(0, 212, 255, 0.1) 50%, transparent 60%),
+        linear-gradient(90deg, transparent 40%, rgba(0, 212, 255, 0.05) 50%, transparent 60%);
+      background-size: 100px 100px, 150px 150px, 200px 200px;
+      animation: networkFlow 15s linear infinite;
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .team-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Connection lines between team members */
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+      transform: translate(-50%, -50%);
+      animation: connectionPulse 3s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .team-card:nth-child(1)::before {
+      animation-delay: 0s;
+    }
+
+    .team-card:nth-child(2)::before {
+      animation-delay: 1.5s;
+    }
+
+    /* Floating connection dots */
+    .team-card::after {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      width: 4px;
+      height: 4px;
+      background: #00d4ff;
+      border-radius: 50%;
+      animation: dotFloat 4s ease-in-out infinite;
+      opacity: 0.6;
+    }
+
+    .team-card:nth-child(1)::after {
+      animation-delay: 0s;
+    }
+
+    .team-card:nth-child(2)::after {
+      animation-delay: 2s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .team-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      border: 3px solid #00d4ff;
+      object-fit: cover;
+    }
+
+    .team-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .team-role {
+      color: #00d4ff;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .team-bio {
+      color: #a0a0a0;
+      line-height: 1.6;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 153, 204, 0.05));
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+    }
+
+    .testimonial-content {
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-content p {
+      font-size: 1.1rem;
+      color: #ccc;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-info h4 {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .author-info span {
+      color: #00d4ff;
+      font-size: 0.9rem;
+    }
+
+    /* Contact Form - Simple Design */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 3rem;
+      position: relative;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #00d4ff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .form-input::placeholder {
+      color: #666;
+    }
+
+    /* Footer */
+    .footer {
+      background: #000;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-section h3 {
+      color: #00d4ff;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .footer-section h4 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .footer-section p {
+      color: #a0a0a0;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul li a {
+      color: #a0a0a0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: #00d4ff;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #00d4ff;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+    }
+
+    .footer-bottom-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: #a0a0a0;
+    }
+
+    .legal-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .legal-links a {
+      color: #a0a0a0;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .legal-links a:hover {
+      color: #00d4ff;
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .legal-links {
+        justify-content: center;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .section {
+        padding: 4rem 1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1001;
+    }
+
+    .scroll-progress {
+      height: 100%;
+      background: linear-gradient(90deg, #00d4ff, #0099cc);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-progress" id="scrollProgress"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">Metaphortech</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- AI Agent Network Node -->
+    <div class="ai-agent">
+      <div class="ai-core"></div>
+      <div class="ai-rings"></div>
+    </div>
+
+    <!-- Holographic Company Logos -->
+    <div class="holographic-logos">
+      <div class="logo-item">
+        <i class="fab fa-google" style="font-size: 2rem; color: #00d4ff;"></i>
+      </div>
+      <div class="logo-item">
+        <i class="fab fa-microsoft" style="font-size: 2rem; color: #00d4ff;"></i>
+      </div>
+      <div class="logo-item">
+        <i class="fab fa-apple" style="font-size: 2rem; color: #00d4ff;"></i>
+      </div>
+      <div class="logo-item">
+        <i class="fab fa-amazon" style="font-size: 2rem; color: #00d4ff;"></i>
+      </div>
+      <div class="logo-item">
+        <i class="fab fa-facebook" style="font-size: 2rem; color: #00d4ff;"></i>
+      </div>
+      <div class="logo-item">
+        <i class="fab fa-netflix" style="font-size: 2rem; color: #00d4ff;"></i>
+      </div>
+    </div>
+
+    <!-- Flowing Code Lines -->
+    <div class="code-lines">
+      <div class="code-line"></div>
+      <div class="code-line"></div>
+      <div class="code-line"></div>
+      <div class="code-line"></div>
+      <div class="code-line"></div>
+      <div class="code-line"></div>
+    </div>
+
+    <!-- Stylized Cityscape -->
+    <div class="cityscape"></div>
+
+    <div class="hero-content">
+      <h1>AI-Powered Workflow Automation</h1>
+      <p>Transform your business with intelligent automation solutions that drive efficiency, reduce costs, and accelerate growth across every industry.</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">
+          <i class="fas fa-rocket"></i>
+          Get Started
+        </a>
+        <a href="#services" class="btn btn-secondary">
+          <i class="fas fa-play"></i>
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section fade-in">
+    <div class="section-header">
+      <h2 class="section-title">About Metaphortech</h2>
+      <p class="section-subtitle">We're revolutionizing how businesses operate by deploying intelligent AI agents that automate mission-critical workflows across industries.</p>
+    </div>
+    <div style="text-align: center; max-width: 800px; margin: 0 auto; color: #a0a0a0; font-size: 1.1rem; line-height: 1.8;">
+      <p>Based in Ontario, Canada, we deliver cutting-edge SaaS solutions tailored to high-value verticals. Our AI-powered platform streamlines operations, enhances customer experiences, and drives measurable business outcomes.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section fade-in">
+    <div class="section-header">
+      <h2 class="section-title">Our Solutions</h2>
+      <p class="section-subtitle">Comprehensive AI automation for every industry vertical</p>
+    </div>
+    <div class="services-grid">
+      <a href="solutions/automotive" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+        <div class="service-icon">
+          <i class="fas fa-car"></i>
+        </div>
+        <h3 class="service-title">Automotive</h3>
+        <p class="service-description">Lead handling, service booking, trade-in valuations, CSI tracking, and customer retention automation.</p>
+      </a>
+      <a href="solutions/food-restaurant" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+        <div class="service-icon">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <h3 class="service-title">Food & Restaurant</h3>
+        <p class="service-description">Reservation bots, order updates, delivery tracking, menu recommendations, and customer feedback automation.</p>
+      </a>
+
+      <a href="solutions/real-estate" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+        <div class="service-icon">
+          <i class="fas fa-building"></i>
+        </div>
+        <h3 class="service-title">Real Estate</h3>
+        <p class="service-description">Property inquiries, viewing scheduling, mortgage prequalification, market analysis, and client relationship management.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="section fade-in">
+    <div class="section-header">
+      <h2 class="section-title">Pricing Plans</h2>
+      <p class="section-subtitle">Choose the perfect plan for your business needs</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3 class="pricing-title">Basic</h3>
+        <div class="pricing-price">$499</div>
+        <p style="color: #a0a0a0; margin-bottom: 2rem;">/mo per location</p>
+        <ul class="pricing-features">
+          <li>Core AI automation</li>
+          <li>Single location support</li>
+          <li>Email support</li>
+          <li>Standard integrations</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">Get Started</a>
+      </div>
+      <div class="pricing-card featured">
+        <h3 class="pricing-title">Pro</h3>
+        <div class="pricing-price">$999</div>
+        <p style="color: #a0a0a0; margin-bottom: 2rem;">/mo per location</p>
+        <ul class="pricing-features">
+          <li>Advanced AI workflows</li>
+          <li>Priority support</li>
+          <li>Custom integrations</li>
+          <li>Analytics dashboard</li>
+          <li>Multi-location support</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <h3 class="pricing-title">Enterprise</h3>
+        <div class="pricing-price">Custom</div>
+        <p style="color: #a0a0a0; margin-bottom: 2rem;">Contact us for pricing</p>
+        <ul class="pricing-features">
+          <li>Unlimited AI workflows</li>
+          <li>24/7 dedicated support</li>
+          <li>Custom development</li>
+          <li>White-label solutions</li>
+          <li>API access</li>
+        </ul>
+        <a href="#contact" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="section fade-in">
+    <div class="section-header">
+      <h2 class="section-title">Our Team</h2>
+      <p class="section-subtitle">Meet the visionaries behind Metaphortech</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="https://ui-avatars.com/api/?name=Saad+Majeed&background=00d4ff&color=000&size=200" alt="Saad Majeed" class="team-avatar">
+        <h3 class="team-name">Saad Majeed</h3>
+        <p class="team-role">Founder & CEO</p>
+        <p class="team-bio">Visionary entrepreneur bridging AI and cross-industry automation with over a decade of experience in technology and business transformation.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://ui-avatars.com/api/?name=Ilhan+Chawala&background=00d4ff&color=000&size=200" alt="Ilhan Chawala" class="team-avatar">
+        <h3 class="team-name">Ilhan Chawala</h3>
+        <p class="team-role">Co-Founder & CTO</p>
+        <p class="team-bio">Operational excellence expert with deep expertise in product execution and scaling businesses across multiple sectors and markets.</p>
+      </div>
+      <div class="team-card">
+        <img src="https://ui-avatars.com/api/?name=Junaid+Raja&background=00d4ff&color=000&size=200" alt="Junaid Raja" class="team-avatar">
+        <h3 class="team-name">Junaid Raja</h3>
+        <p class="team-role">Co-Founder & COO</p>
+        <p class="team-bio">Strategic business leader with extensive experience in operations and scaling technology companies. Focused on driving operational excellence and sustainable growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title fade-in">What Our Clients Say</h2>
+      <p class="section-subtitle fade-in">Trusted by leading Canadian businesses across industries</p>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-content">
+            <p>"Metaphortech's AI automation solution transformed our patient intake process. We've reduced administrative overhead by 60% while improving patient satisfaction."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Dr. Sarah Williams</h4>
+              <span>Chief Medical Officer, Toronto General Hospital</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-content">
+            <p>"The automation platform has streamlined our loan processing workflow. What used to take days now happens in hours, with better accuracy and compliance."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Michael Rodriguez</h4>
+              <span>VP of Operations, Canadian Financial Group</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-content">
+            <p>"Implementing Metaphortech's solution was seamless. Their team understood our automotive industry challenges and delivered exactly what we needed."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Jennifer Chen</h4>
+              <span>Operations Director, AutoTech Manufacturing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section fade-in">
+    <div class="section-header">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Ready to transform your business with AI automation? Request a demo or get in touch with our team.</p>
+    </div>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="company" class="form-input" placeholder="Company Name">
+        </div>
+        <div class="form-group">
+          <textarea name="message" class="form-input" rows="4" placeholder="Tell us about your business needs or request a demo..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          <i class="fas fa-paper-plane"></i>
+          Send Message / Request Demo
+        </button>
+      </form>
+      <p style="text-align: center; margin-top: 2rem; color: #a0a0a0;">
+        Or contact us directly at <a href="mailto:info@metaphortech.com" style="color: #00d4ff; text-decoration: none;">info@metaphortech.com</a> or call <a href="tel:+14168711217" style="color: #00d4ff; text-decoration: none;">+1 (416) 871-1217</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Metaphortech Inc.</h3>
+        <p>Transforming businesses through intelligent AI workflow automation. We help companies streamline operations, reduce costs, and accelerate growth.</p>
+                          <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61578952080778" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/MetaphorTech" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/metaphortech/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                  </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="/solutions/automotive">Automotive</a></li>
+          <li><a href="/solutions/food-restaurant">Food & Restaurant</a></li>
+  
+          <li><a href="/solutions/real-estate">Real Estate</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+        <div style="margin-top: 1rem;">
+          <p style="color: #a0a0a0; margin-bottom: 0.5rem;">Contact Info:</p>
+          <p style="color: #a0a0a0; margin-bottom: 0.5rem;"><a href="mailto:info@metaphortech.com" style="color: #a0a0a0; text-decoration: none;">info@metaphortech.com</a></p>
+          <p style="color: #a0a0a0; margin-bottom: 0.5rem;"><a href="tel:+14168711217" style="color: #a0a0a0; text-decoration: none;">+1 (416) 871-1217</a></p>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/support">Help Center</a></li>
+          <li><a href="/docs">Documentation</a></li>
+          <li><a href="/api">API Reference</a></li>
+          <li><a href="/status">System Status</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>&copy; 2024 Metaphortech Inc. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="/legal/privacy.html">Privacy Policy</a>
+          <a href="/legal/terms.html">Terms of Service</a>
+          <a href="/legal/cookies.html">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Google Analytics (Replace with your actual tracking code) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
+  <!-- AI Chatbot Widget -->
+  <div id="chatbot-widget" class="chatbot-widget">
+              <div id="chatbot-toggle" class="chatbot-toggle">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-badge">AI</span>
+          </div>
+    
+    <div id="chatbot-container" class="chatbot-container">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-info">
+          <h4>Metaphortech AI Assistant</h4>
+          <p>Ask me about our AI automation solutions</p>
+        </div>
+        <button id="chatbot-close" class="chatbot-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="message bot-message">
+          <div class="message-content">
+            <p>👋 Hi! I'm your AI assistant. How can I help you today?</p>
+            <div class="quick-replies">
+              <button class="quick-reply" data-query="Tell me about your AI automation solutions">AI Solutions</button>
+              <button class="quick-reply" data-query="What industries do you serve">Industries</button>
+              <button class="quick-reply" data-query="How much does it cost">Pricing</button>
+              <button class="quick-reply" data-query="Request a demo">Request Demo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chatbot-input">
+        <input type="text" id="chatbot-input-field" placeholder="Type your message..." />
+        <button id="chatbot-send">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Chatbot Styles */
+    .chatbot-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .chatbot-toggle {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #00d4ff, #0099cc);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .chatbot-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(0, 212, 255, 0.4);
+    }
+
+    .chatbot-toggle i {
+      color: white;
+      font-size: 24px;
+    }
+
+    .chatbot-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ff4757;
+      color: white;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .chatbot-container {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 500px;
+      background: #1a1a1a;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chatbot-container.active {
+      display: flex;
+    }
+
+    .chatbot-header {
+      background: linear-gradient(135deg, #00d4ff, #0099cc);
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chatbot-avatar {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chatbot-avatar i {
+      color: white;
+      font-size: 18px;
+    }
+
+    .chatbot-info {
+      flex: 1;
+    }
+
+    .chatbot-info h4 {
+      color: white;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .chatbot-info p {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0;
+      font-size: 12px;
+    }
+
+    .chatbot-close {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 5px;
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .message {
+      display: flex;
+      gap: 10px;
+    }
+
+    .bot-message {
+      justify-content: flex-start;
+    }
+
+    .user-message {
+      justify-content: flex-end;
+    }
+
+    .message-content {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .bot-message .message-content {
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      color: #fff;
+    }
+
+    .user-message .message-content {
+      background: linear-gradient(135deg, #00d4ff, #0099cc);
+      color: white;
+    }
+
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quick-reply {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .quick-reply:hover {
+      background: rgba(0, 212, 255, 0.2);
+      border-color: #00d4ff;
+    }
+
+    .chatbot-input {
+      padding: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      gap: 10px;
+    }
+
+    #chatbot-input-field {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 10px 15px;
+      color: white;
+      font-size: 14px;
+    }
+
+    #chatbot-input-field::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    #chatbot-input-field:focus {
+      outline: none;
+      border-color: #00d4ff;
+    }
+
+    #chatbot-send {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #00d4ff, #0099cc);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    #chatbot-send:hover {
+      transform: scale(1.1);
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 18px;
+      max-width: 80%;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background: #00d4ff;
+      border-radius: 50%;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes typing {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .chatbot-container {
+        width: 300px;
+        height: 450px;
+        bottom: 70px;
+        right: 10px;
+      }
+    }
+  </style>
+
+  <script>
+    // Scroll progress indicator
+    window.addEventListener('scroll', () => {
+      const scrollProgress = document.getElementById('scrollProgress');
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.body.offsetHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      scrollProgress.style.width = scrollPercent + '%';
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const button = this.querySelector('button[type="submit"]');
+      const originalText = button.innerHTML;
+      
+      button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      button.disabled = true;
+      
+      const formData = new FormData(this);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        company: formData.get('company'),
+        message: formData.get('message')
+      };
+      
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+          button.style.background = '#4CAF50';
+          this.reset();
+          // Show success message for demo requests
+          setTimeout(() => {
+            alert('Thank you for your message! We\'ll get back to you soon. If you requested a demo, our team will contact you to schedule it.');
+          }, 500);
+        } else {
+          button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error!';
+          button.style.background = '#f44336';
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error!';
+        button.style.background = '#f44336';
+      })
+      .finally(() => {
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.style.background = '';
+          button.disabled = false;
+        }, 2000);
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+      } else {
+        navbar.style.background = 'rgba(0, 0, 0, 0.8)';
+      }
+    });
+
+    // Chatbot functionality
+    class MetaphortechChatbot {
+      constructor() {
+        this.isOpen = false;
+        this.messages = [];
+        this.faqs = {
+          'ai solutions': {
+            response: "We offer comprehensive AI workflow automation solutions across 3 key industries:\n\n• Automotive: Lead handling, service booking, CSI tracking\n• Food & Restaurant: Reservation bots, order updates, delivery tracking\n• Real Estate: Property inquiries, viewing scheduling, mortgage prequalification\n\nOur AI agents can handle customer inquiries, process forms, schedule appointments, and automate repetitive tasks.",
+            followUp: "Would you like to know about a specific industry or request a demo?"
+          },
+          'industries': {
+            response: "We serve 3 key industries with specialized AI automation:\n\n🚗 Automotive\n🍽️ Food & Restaurant\n🏢 Real Estate\n\nEach solution is tailored to industry-specific workflows and compliance requirements.",
+            followUp: "Which industry interests you most?"
+          },
+          'pricing': {
+            response: "We offer flexible pricing plans tailored to your specific business needs and requirements. Our solutions are designed to scale with your business growth.\n\nTo get accurate pricing information for your specific use case, please fill out our contact form with details about your business, industry, and automation needs. Our team will provide you with a customized quote.\n\nAll our plans include Canadian data residency and PIPEDA compliance.",
+            followUp: "Would you like me to help you fill out a contact form to get pricing information?"
+          },
+          'demo': {
+            response: "Great! I'd be happy to help you schedule a demo. Our demos typically cover:\n\n• Live AI agent demonstration\n• Industry-specific use cases\n• Integration possibilities\n• ROI calculations\n• Implementation timeline\n\nTo schedule your demo, please provide:\n• Your name and company\n• Industry/use case\n• Preferred contact method\n\nI can connect you with our sales team right away!",
+            followUp: "Should I help you fill out a demo request form?"
+          },
+          'contact': {
+            response: "You can reach us through multiple channels:\n\n📧 Email: info@metaphortech.com\n📞 Phone: +1 (416) 871-1217\n🌐 Website: Contact form\n📍 Address: Toronto, Canada\n\nOur team typically responds within 2-4 hours during business hours (EST). For urgent matters, please call us directly.",
+            followUp: "Is there a specific way you'd prefer to be contacted?"
+          },
+          'compliance': {
+            response: "We take compliance seriously and are fully compliant with Canadian and international regulations:\n\n🇨🇦 PIPEDA Compliance\n• Canadian data residency\n• Privacy protection\n• Consent management\n\n🔒 Security Features\n• End-to-end encryption\n• SOC 2 Type II certified\n• Regular security audits\n• GDPR ready\n\n📋 Industry Standards\n• HIPAA (Healthcare)\n• PCI DSS (Finance)\n• ISO 27001\n\nYour data is always protected and stored securely in Canada.",
+            followUp: "Do you have specific compliance requirements?"
+          }
+        };
+        
+        this.init();
+      }
+
+      init() {
+        this.bindEvents();
+        this.addWelcomeMessage();
+      }
+
+      bindEvents() {
+        document.getElementById('chatbot-toggle').addEventListener('click', () => this.toggleChat());
+        document.getElementById('chatbot-close').addEventListener('click', () => this.closeChat());
+        document.getElementById('chatbot-send').addEventListener('click', () => this.sendMessage());
+        document.getElementById('chatbot-input-field').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') this.sendMessage();
+        });
+
+        // Quick reply buttons
+        document.addEventListener('click', (e) => {
+          if (e.target.classList.contains('quick-reply')) {
+            const query = e.target.dataset.query;
+            this.addUserMessage(query);
+            this.processMessage(query).catch(error => {
+              console.error('Error processing quick reply:', error);
+              this.addBotMessage("I apologize, but I'm having trouble processing your request right now. Please try asking about our AI automation solutions, pricing, or request a demo!");
+            });
+          }
+        });
+      }
+
+      toggleChat() {
+        this.isOpen = !this.isOpen;
+        const container = document.getElementById('chatbot-container');
+        if (this.isOpen) {
+          container.classList.add('active');
+          document.getElementById('chatbot-input-field').focus();
+        } else {
+          container.classList.remove('active');
+        }
+      }
+
+      closeChat() {
+        this.isOpen = false;
+        document.getElementById('chatbot-container').classList.remove('active');
+      }
+
+      addUserMessage(text) {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message user-message';
+        messageDiv.innerHTML = `
+          <div class="message-content">
+            <p>${text}</p>
+          </div>
+        `;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      addBotMessage(text, showTyping = true) {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        
+        if (showTyping) {
+          const typingDiv = document.createElement('div');
+          typingDiv.className = 'message bot-message';
+          typingDiv.innerHTML = `
+            <div class="typing-indicator">
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+              <div class="typing-dot"></div>
+            </div>
+          `;
+          messagesContainer.appendChild(typingDiv);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+          setTimeout(() => {
+            messagesContainer.removeChild(typingDiv);
+            this.showBotResponse(text);
+          }, 1500);
+        } else {
+          this.showBotResponse(text);
+        }
+      }
+
+      showBotResponse(text) {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message bot-message';
+        messageDiv.innerHTML = `
+          <div class="message-content">
+            <p>${text.replace(/\n/g, '<br>')}</p>
+          </div>
+        `;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      async processMessage(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        // Check for specific keywords first (business-related)
+        if (lowerMessage.includes('solution for') || lowerMessage.includes('solutions for')) {
+          // Extract the specific industry/solution being asked about
+          const solutionMatch = lowerMessage.match(/solution for (\w+)/);
+          if (solutionMatch) {
+            const industry = solutionMatch[1].toLowerCase();
+            
+            // Handle specific industries we serve
+            if (industry === 'automotive' || industry === 'car' || industry === 'auto') {
+              this.addBotMessage(`Our Automotive automation solution includes:\n\n• Lead handling and qualification\n• Service booking automation\n• CSI (Customer Satisfaction Index) tracking\n• Trade-in valuations\n• Customer retention programs\n\nBefore I provide more details, could you tell me:\n• What type of automotive business do you have? (dealership, service center, etc.)\n• How many locations do you operate?\n• What's your current biggest challenge?`);
+            }
+            else if (industry === 'food' || industry === 'restaurant' || industry === 'dining') {
+              this.addBotMessage(`Our Food & Restaurant automation solution includes:\n\n• Reservation management bots\n• Order status updates\n• Delivery tracking systems\n• Menu recommendations\n• Customer feedback automation\n\nBefore I provide more details, could you tell me:\n• What type of food business do you have? (restaurant, delivery, etc.)\n• How many locations do you operate?\n• What's your current biggest challenge?`);
+            }
+            
+            else if (industry === 'real' || industry === 'estate' || industry === 'property') {
+              this.addBotMessage(`Our Real Estate automation solution includes:\n\n• Property inquiry management\n• Viewing scheduling automation\n• Mortgage prequalification\n• Market analysis tools\n• Client relationship management\n\nBefore I provide more details, could you tell me:\n• What type of real estate business do you have? (residential, commercial, etc.)\n• How many agents do you have?\n• What's your current biggest challenge?`);
+            }
+            else {
+              this.addBotMessage("I'd be happy to help you with our automation solutions. We currently serve 3 key industries:\n\n• Automotive\n• Food & Restaurant\n• Real Estate\n\nCould you please specify which of these industries you're interested in?");
+            }
+          } else {
+            this.addBotMessage("I'd be happy to help you with our automation solutions. We currently serve 3 key industries:\n\n• Automotive\n• Food & Restaurant\n• Real Estate\n\nCould you please specify which industry you're interested in?");
+          }
+        }
+        else if (lowerMessage.includes('ai solutions') || (lowerMessage.includes('automation') && !lowerMessage.includes('solution for'))) {
+          this.addBotMessage(this.faqs['ai solutions'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['ai solutions'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('industry') || lowerMessage.includes('serve')) {
+          this.addBotMessage(this.faqs['industries'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['industries'].followUp);
+          }, 3000);
+        }
+        else if (lowerMessage.includes('cost') || lowerMessage.includes('price') || lowerMessage.includes('pricing')) {
+          this.addBotMessage(this.faqs['pricing'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['pricing'].followUp);
+          }, 3000);
+        }
+        else if (lowerMessage.includes('demo') || lowerMessage.includes('demonstration')) {
+          this.addBotMessage(this.faqs['demo'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['demo'].followUp);
+          }, 3000);
+        }
+        else if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('phone') || lowerMessage.includes('email')) {
+          this.addBotMessage(this.faqs['contact'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['contact'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('compliance') || lowerMessage.includes('security') || lowerMessage.includes('pipeda') || lowerMessage.includes('gdpr')) {
+          this.addBotMessage(this.faqs['compliance'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['compliance'].followUp);
+          }, 3000);
+        }
+        else {
+          // Use LLM for general conversation
+          try {
+            const response = await this.getLLMResponse(message);
+            this.addBotMessage(response);
+          } catch (error) {
+            // Fallback to default response if LLM fails
+            this.addBotMessage("I understand you're asking about: '" + message + "'. Let me help you with that. Could you please be more specific about what you'd like to know? You can ask about:\n\n• Our AI automation solutions\n• Industries we serve\n• Pricing information\n• Requesting a demo\n• Contact information\n• Compliance & security");
+          }
+        }
+      }
+
+      async getLLMResponse(message) {
+        // Using a free LLM API (Hugging Face Inference API)
+        const API_URL = 'https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium';
+        
+        try {
+          const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer hf_demo' // Using demo token for free access
+            },
+            body: JSON.stringify({
+              inputs: message,
+              parameters: {
+                max_length: 150,
+                temperature: 0.7,
+                do_sample: true
+              }
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error('LLM API request failed');
+          }
+
+          const data = await response.json();
+          
+          if (data && data[0] && data[0].generated_text) {
+            let response = data[0].generated_text;
+            
+            // Clean up the response
+            response = response.replace(/User:.*?Assistant:/s, '').trim();
+            response = response.replace(/User:.*?$/s, '').trim();
+            
+            // If response is too short or unclear, provide a friendly fallback
+            if (response.length < 10 || response.includes('User:')) {
+              return this.getFriendlyResponse(message);
+            }
+            
+            return response;
+          } else {
+            return this.getFriendlyResponse(message);
+          }
+        } catch (error) {
+          console.log('LLM API error:', error);
+          return this.getFriendlyResponse(message);
+        }
+      }
+
+      getFriendlyResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        // Handle common greetings and casual questions
+        if (lowerMessage.includes('how are you') || lowerMessage.includes('how do you do')) {
+          return "I'm doing great, thank you for asking! 😊 I'm here to help you learn about Metaphortech's AI automation solutions. How can I assist you today?";
+        }
+        else if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+          return "Hello! 👋 I'm your AI assistant from Metaphortech. I'm here to help you discover how our AI automation can transform your business. What would you like to know?";
+        }
+        else if (lowerMessage.includes('thank you') || lowerMessage.includes('thanks')) {
+          return "You're very welcome! 😊 I'm here to help. Is there anything else you'd like to know about our AI solutions?";
+        }
+        else if (lowerMessage.includes('bye') || lowerMessage.includes('goodbye')) {
+          return "Goodbye! 👋 It was great chatting with you. Feel free to come back anytime if you have questions about our AI automation solutions. Have a wonderful day!";
+        }
+        else if (lowerMessage.includes('what can you do') || lowerMessage.includes('help')) {
+          return "I'm your AI assistant from Metaphortech! 🤖 I can help you with:\n\n• Learning about our AI automation solutions\n• Understanding which industries we serve\n• Getting pricing information\n• Scheduling a demo\n• Contact information\n• Compliance and security details\n\nWhat interests you most?";
+        }
+        else if (lowerMessage.includes('weather') || lowerMessage.includes('time')) {
+          return "I'm focused on helping you with Metaphortech's AI automation solutions! 😊 While I can't check the weather or time, I can definitely help you understand how our AI can streamline your business processes. What would you like to know?";
+        }
+        else {
+          return "That's an interesting question! 🤔 I'm here to help you learn about Metaphortech's AI automation solutions. Could you tell me more about what you're looking for? I can help with pricing, demos, industry solutions, and more!";
+        }
+      }
+
+      sendMessage() {
+        const input = document.getElementById('chatbot-input-field');
+        const message = input.value.trim();
+        
+        if (message) {
+          this.addUserMessage(message);
+          this.processMessage(message).catch(error => {
+            console.error('Error processing message:', error);
+            this.addBotMessage("I apologize, but I'm having trouble processing your request right now. Please try asking about our AI automation solutions, pricing, or request a demo!");
+          });
+          input.value = '';
+        }
+      }
+
+      addWelcomeMessage() {
+        // Welcome message is already in HTML
+      }
+    }
+
+    // Initialize chatbot when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      new MetaphortechChatbot();
+    });
+  </script>
+
+
+</body>
+</html>

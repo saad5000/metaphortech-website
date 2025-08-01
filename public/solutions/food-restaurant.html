@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Food & Restaurant AI Automation | Metaphortech Inc.</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Revolutionize your restaurant operations with AI automation. Streamline ordering, reservations, delivery tracking, and customer service with intelligent solutions.">
+  <meta name="keywords" content="restaurant automation, food service AI, reservation bots, delivery tracking, menu recommendations, restaurant management">
+  <meta name="author" content="Metaphortech Inc.">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Food & Restaurant AI Automation | Metaphortech Inc.">
+  <meta property="og:description" content="Revolutionize your restaurant operations with AI automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://metaphortech.com/solutions/food-restaurant">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00d4ff;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 2rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+
+    .hero-section {
+      text-align: center;
+      padding: 6rem 0;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.1));
+      border-radius: 16px;
+      margin: 2rem 0;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #00d4ff, #0099cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: #a0a0a0;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #00d4ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #a0a0a0;
+      font-weight: 500;
+    }
+
+    .section {
+      margin: 4rem 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #a0a0a0;
+      margin-bottom: 3rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: #00d4ff;
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .feature-description {
+      color: #a0a0a0;
+      line-height: 1.6;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin: 6rem 0;
+      padding: 4rem;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.1));
+      border-radius: 16px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #00d4ff, #0099cc);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back-link">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="hero-section">
+      <h1 class="hero-title">Food & Restaurant AI Automation</h1>
+      <p class="hero-subtitle">Transform your restaurant operations with intelligent automation that enhances customer experience and streamlines every aspect of your food service business</p>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">90%</div>
+          <div class="stat-label">Faster Order Processing</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">70%</div>
+          <div class="stat-label">Reduced Wait Times</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Customer Support</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Revolutionizing Food Service with AI</h2>
+      <p class="section-subtitle">Our comprehensive AI automation platform addresses the unique challenges faced by restaurants, cafes, food trucks, and delivery services, from order management to customer engagement.</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3 class="feature-title">Reservation Bots</h3>
+          <p class="feature-description">Intelligent reservation systems that handle table bookings, manage waitlists, and provide real-time availability updates to customers 24/7.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <h3 class="feature-title">Smart Order Processing</h3>
+          <p class="feature-description">AI-powered order management that processes orders instantly, handles modifications, and optimizes kitchen workflow for maximum efficiency.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-truck"></i>
+          </div>
+          <h3 class="feature-title">Delivery Tracking</h3>
+          <p class="feature-description">Real-time delivery tracking with automated status updates, estimated arrival times, and customer notifications throughout the delivery process.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="feature-title">Menu Recommendations</h3>
+          <p class="feature-description">Personalized menu recommendations based on customer preferences, dietary restrictions, and popular combinations to increase order value.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3 class="feature-title">Customer Feedback Automation</h3>
+          <p class="feature-description">Automated feedback collection and analysis that helps you understand customer satisfaction and identify areas for improvement.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="feature-title">Inventory Management</h3>
+          <p class="feature-description">Smart inventory tracking that predicts demand, alerts for low stock, and optimizes ordering to reduce waste and costs.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="feature-title">Staff Scheduling</h3>
+          <p class="feature-description">AI-powered staff scheduling that optimizes labor costs based on predicted demand, seasonal trends, and staff availability.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <h3 class="feature-title">Payment Processing</h3>
+          <p class="feature-description">Seamless payment processing with multiple payment options, automatic tip calculations, and secure transaction handling.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-bell"></i>
+          </div>
+          <h3 class="feature-title">Smart Notifications</h3>
+          <p class="feature-description">Proactive notifications for order updates, reservation reminders, special offers, and loyalty program benefits.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="feature-title">Food Safety Compliance</h3>
+          <p class="feature-description">Automated compliance tracking for food safety regulations, temperature monitoring, and health inspection requirements.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="feature-title">Mobile App Integration</h3>
+          <p class="feature-description">Seamless integration with existing mobile apps and POS systems for a unified customer experience across all touchpoints.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-analytics"></i>
+          </div>
+          <h3 class="feature-title">Analytics & Insights</h3>
+          <p class="feature-description">Comprehensive analytics that provide insights into customer behavior, popular items, peak hours, and revenue optimization opportunities.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2>Ready to Transform Your Restaurant?</h2>
+      <p>Join leading restaurants and food service businesses across Canada that have already implemented AI automation to enhance customer experience and operational efficiency.</p>
+      <a href="/#contact" class="cta-button">Get Started Today</a>
+    </div>
+  </div>
+
+  <!-- AI Chatbot -->
+  <div id="chatbot-widget" class="chatbot-widget">
+    <div class="chatbot-toggle" onclick="chatbot.toggleChat()">
+      <i class="fas fa-robot"></i>
+    </div>
+    
+    <div id="chatbot-container" class="chatbot-container">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-info">
+          <h3>Metaphortech AI Assistant</h3>
+          <p>Ask me about our restaurant automation solutions!</p>
+        </div>
+        <button class="chatbot-close" onclick="chatbot.toggleChat()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="bot-message">
+          <div class="message-content">
+            <p>Hello! I'm here to help you with our restaurant automation solutions. How can I assist you today?</p>
+          </div>
+        </div>
+        
+        <div class="quick-replies">
+          <button class="quick-reply" data-query="Tell me about restaurant automation">Restaurant Automation</button>
+          <button class="quick-reply" data-query="How much does it cost?">Pricing</button>
+          <button class="quick-reply" data-query="Request a demo">Request Demo</button>
+        </div>
+      </div>
+      
+      <div class="chatbot-input">
+        <input type="text" id="chatbot-input-field" placeholder="Type your message..." onkeypress="if(event.key === 'Enter') chatbot.sendMessage()">
+        <button onclick="chatbot.sendMessage()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .chatbot-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .chatbot-toggle {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      color: white;
+      font-size: 24px;
+    }
+
+    .chatbot-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .chatbot-container {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 500px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chatbot-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chatbot-avatar {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .chatbot-info h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .chatbot-info p {
+      margin: 5px 0 0 0;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .chatbot-close {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 5px;
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .bot-message, .user-message {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .bot-message {
+      justify-content: flex-start;
+    }
+
+    .user-message {
+      justify-content: flex-end;
+    }
+
+    .message-content {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .bot-message .message-content {
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    .user-message .message-content {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quick-reply {
+      background: #f0f2f5;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #333;
+    }
+
+    .quick-reply:hover {
+      background: #e4e6e9;
+      transform: translateY(-1px);
+    }
+
+    .chatbot-input {
+      padding: 20px;
+      border-top: 1px solid #eee;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    #chatbot-input-field {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    #chatbot-input-field:focus {
+      border-color: #667eea;
+    }
+
+    .chatbot-input button {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-input button:hover {
+      transform: scale(1.1);
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background: #f8f9fa;
+      border-radius: 18px;
+      max-width: 80%;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background: #999;
+      border-radius: 50%;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes typing {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .chatbot-container {
+        width: 300px;
+        height: 450px;
+        right: -10px;
+      }
+    }
+  </style>
+
+  <script>
+    class MetaphortechChatbot {
+      constructor() {
+        this.isOpen = false;
+        this.faqs = {
+          'restaurant automation': {
+            response: "Our restaurant automation solutions include:\n\n• Smart order processing and management\n• Automated customer service and reservations\n• Inventory and supply chain optimization\n• Staff scheduling and management\n• Payment processing and analytics\n• Food safety compliance tracking\n\nThese solutions help restaurants reduce costs, improve efficiency, and enhance customer experience.",
+            followUp: "Would you like to know about a specific feature or request a demo?"
+          },
+          'pricing': {
+            response: "For detailed pricing information tailored to your specific needs, please fill out our contact form. Our sales team will get back to you promptly to discuss the best plan for your business.",
+            followUp: "Would you like me to help you find the contact form?"
+          },
+          'demo': {
+            response: "I'd be happy to help you request a demo! Please fill out our contact form with your details and mention that you're interested in a restaurant automation demo. Our team will schedule a personalized demonstration for you.",
+            followUp: "Would you like me to help you find the contact form?"
+          },
+          'contact': {
+            response: "You can reach us through our contact form on the main page, or directly at:\n\n• Phone: (416) 871-1217\n• Email: info@metaphortech.com\n• Address: Toronto, Ontario, Canada",
+            followUp: "Is there anything specific you'd like to discuss?"
+          },
+          'features': {
+            response: "Our restaurant automation features include:\n\n• AI-powered order management\n• Real-time delivery tracking\n• Personalized menu recommendations\n• Automated feedback collection\n• Smart inventory management\n• Staff scheduling optimization\n• Payment processing\n• Food safety compliance",
+            followUp: "Which feature interests you most?"
+          }
+        };
+      }
+
+      toggleChat() {
+        const container = document.getElementById('chatbot-container');
+        this.isOpen = !this.isOpen;
+        container.style.display = this.isOpen ? 'flex' : 'none';
+      }
+
+      addBotMessage(message) {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'bot-message';
+        messageDiv.innerHTML = `
+          <div class="message-content">
+            <p>${message.replace(/\n/g, '<br>')}</p>
+          </div>
+        `;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      addUserMessage(message) {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'user-message';
+        messageDiv.innerHTML = `
+          <div class="message-content">
+            <p>${message}</p>
+          </div>
+        `;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      showTypingIndicator() {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'bot-message typing-indicator-container';
+        typingDiv.innerHTML = `
+          <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        `;
+        messagesContainer.appendChild(typingDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        return typingDiv;
+      }
+
+      hideTypingIndicator(typingDiv) {
+        if (typingDiv && typingDiv.parentNode) {
+          typingDiv.parentNode.removeChild(typingDiv);
+        }
+      }
+
+      async processMessage(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        // Check for business-specific FAQs first
+        if (lowerMessage.includes('restaurant') || lowerMessage.includes('food') || lowerMessage.includes('menu') || lowerMessage.includes('order')) {
+          this.addBotMessage("Our restaurant automation solution specifically helps with:\n\n• Smart order processing and management\n• Menu recommendations and personalization\n• Inventory and supply chain optimization\n• Staff scheduling and management\n• Customer feedback automation\n• Payment processing and analytics");
+          setTimeout(() => {
+            this.addBotMessage("Would you like to know about a specific feature or request a demo?");
+          }, 2000);
+        }
+        else if (lowerMessage.includes('cost') || lowerMessage.includes('price') || lowerMessage.includes('pricing')) {
+          this.addBotMessage(this.faqs['pricing'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['pricing'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('demo') || lowerMessage.includes('demonstration')) {
+          this.addBotMessage(this.faqs['demo'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['demo'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('contact') || lowerMessage.includes('phone') || lowerMessage.includes('email')) {
+          this.addBotMessage(this.faqs['contact'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['contact'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('feature') || lowerMessage.includes('capability') || lowerMessage.includes('what can')) {
+          this.addBotMessage(this.faqs['features'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['features'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('how are you') || lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+          const friendlyResponse = this.getFriendlyResponse(message);
+          this.addBotMessage(friendlyResponse);
+        }
+        else {
+          // Use LLM for general conversation
+          try {
+            const response = await this.getLLMResponse(message);
+            this.addBotMessage(response);
+          } catch (error) {
+            // Fallback to default response if LLM fails
+            this.addBotMessage("I understand you're asking about: '" + message + "'. Let me help you with that. Could you please be more specific about what you'd like to know? You can ask about:\n\n• Our restaurant automation solutions\n• Specific features and capabilities\n• Requesting a demo\n• Contact information\n• Pricing information");
+          }
+        }
+      }
+
+      async getLLMResponse(message) {
+        const API_URL = 'https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium';
+        try {
+          const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              inputs: message,
+              parameters: {
+                max_length: 100,
+                temperature: 0.7,
+                do_sample: true
+              }
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error('LLM API request failed');
+          }
+
+          const data = await response.json();
+          let llmResponse = data[0]?.generated_text || 'I understand your question. Let me help you with that.';
+          
+          // Clean up the response
+          llmResponse = llmResponse.replace(/^[^:]*:\s*/, ''); // Remove prefix if present
+          llmResponse = llmResponse.trim();
+          
+          if (llmResponse.length < 10) {
+            return "I understand your question. Let me help you with that. Could you please be more specific about what you'd like to know about our restaurant automation solutions?";
+          }
+          
+          return llmResponse;
+        } catch (error) {
+          console.error('LLM API Error:', error);
+          throw error;
+        }
+      }
+
+      getFriendlyResponse(message) {
+        const responses = [
+          "Hello! I'm doing great, thank you for asking! How can I help you with our restaurant automation solutions today?",
+          "Hi there! I'm here and ready to assist you with any questions about our AI automation services for restaurants.",
+          "Hello! I'm functioning perfectly and excited to help you explore how AI can transform your restaurant operations.",
+          "Hi! I'm doing well, thanks! What would you like to know about our restaurant automation solutions?"
+        ];
+        return responses[Math.floor(Math.random() * responses.length)];
+      }
+
+      sendMessage() {
+        const input = document.getElementById('chatbot-input-field');
+        const message = input.value.trim();
+        if (message) {
+          this.addUserMessage(message);
+          this.processMessage(message).catch(error => {
+            console.error('Error processing message:', error);
+            this.addBotMessage("I apologize, but I'm having trouble processing your request right now. Please try asking about our restaurant automation solutions, pricing, or request a demo!");
+          });
+          input.value = '';
+        }
+      }
+    }
+
+    // Initialize chatbot
+    const chatbot = new MetaphortechChatbot();
+
+    // Quick reply functionality
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('quick-reply')) {
+        const query = e.target.dataset.query;
+        chatbot.addUserMessage(query);
+        chatbot.processMessage(query).catch(error => {
+          console.error('Error processing quick reply:', error);
+          chatbot.addBotMessage("I apologize, but I'm having trouble processing your request right now. Please try asking about our restaurant automation solutions, pricing, or request a demo!");
+        });
+      }
+    });
+  </script>
+</body>
+</html> 

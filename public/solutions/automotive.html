@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automotive AI Automation Solutions | Metaphortech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00d4ff;
+    }
+
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+      padding-top: 100px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 0 2rem;
+      z-index: 10;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      color: #a0a0a0;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 0%, #00d4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: #a0a0a0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .solution-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00d4ff, #0099cc);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .solution-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .solution-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .solution-icon {
+      font-size: 2.5rem;
+      color: #00d4ff;
+      margin-bottom: 1.5rem;
+    }
+
+    .solution-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .solution-description {
+      color: #a0a0a0;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .features-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .features-list li {
+      padding: 0.5rem 0;
+      color: #a0a0a0;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .features-list li::before {
+      content: '✓';
+      color: #00d4ff;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .stats-section {
+      background: rgba(0, 212, 255, 0.05);
+      border-radius: 16px;
+      padding: 3rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #00d4ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #a0a0a0;
+      font-size: 1rem;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.1) 100%);
+      border-radius: 16px;
+      margin: 3rem 0;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0.5rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      border-color: #00d4ff;
+      color: #00d4ff;
+      transform: translateY(-2px);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00d4ff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .section {
+        padding: 3rem 1rem;
+      }
+
+      .solutions-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Metaphortech</a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+        <li><a href="../index.html#team">Team</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <a href="../index.html#services" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        Back to Solutions
+      </a>
+      <h1>Automotive AI Automation</h1>
+      <p>Revolutionize your dealership operations with intelligent AI agents that handle every aspect of customer interaction, from initial inquiry to post-sale follow-up.</p>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">Comprehensive Automotive Solutions</h2>
+      <p class="section-subtitle">Transform your dealership with AI-powered automation that increases sales, improves customer satisfaction, and reduces operational costs</p>
+    </div>
+
+    <div class="solutions-grid">
+      <div class="solution-card">
+        <div class="solution-icon">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <h3 class="solution-title">Intelligent Lead Handling</h3>
+        <p class="solution-description">Our AI agents instantly respond to customer inquiries across all channels, qualifying leads and scheduling appointments 24/7.</p>
+        <ul class="features-list">
+          <li>Instant response to web inquiries</li>
+          <li>Multi-channel lead capture (phone, email, chat, social)</li>
+          <li>Intelligent lead scoring and qualification</li>
+          <li>Automated appointment scheduling</li>
+          <li>Integration with CRM systems</li>
+          <li>Follow-up sequence automation</li>
+        </ul>
+      </div>
+
+      <div class="solution-card">
+        <div class="solution-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3 class="solution-title">Service Booking Automation</h3>
+        <p class="solution-description">Streamline service department operations with AI-powered scheduling, reminders, and customer communication.</p>
+        <ul class="features-list">
+          <li>Automated service appointment booking</li>
+          <li>Smart scheduling based on technician availability</li>
+          <li>Automated reminder notifications</li>
+          <li>Service history tracking</li>
+          <li>Parts availability checking</li>
+          <li>Service status updates</li>
+        </ul>
+      </div>
+
+      <div class="solution-card">
+        <div class="solution-icon">
+          <i class="fas fa-calculator"></i>
+        </div>
+        <h3 class="solution-title">Trade-in Valuation AI</h3>
+        <p class="solution-description">Accurate, instant trade-in valuations using market data, vehicle history, and condition assessment algorithms.</p>
+        <ul class="features-list">
+          <li>Real-time market value analysis</li>
+          <li>Vehicle condition assessment</li>
+          <li>Historical data integration</li>
+          <li>Automated appraisal reports</li>
+          <li>Competitive pricing analysis</li>
+          <li>Trade-in offer generation</li>
+        </ul>
+      </div>
+
+      <div class="solution-card">
+        <div class="solution-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <h3 class="solution-title">CSI Tracking & Management</h3>
+        <p class="solution-description">Monitor and improve Customer Satisfaction Index scores with proactive feedback collection and issue resolution.</p>
+        <ul class="features-list">
+          <li>Automated CSI survey distribution</li>
+          <li>Real-time satisfaction monitoring</li>
+          <li>Negative feedback alert system</li>
+          <li>Issue escalation automation</li>
+          <li>Performance trend analysis</li>
+          <li>Improvement recommendation engine</li>
+        </ul>
+      </div>
+
+      <div class="solution-card">
+        <div class="solution-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3 class="solution-title">Customer Retention Automation</h3>
+        <p class="solution-description">Build lasting customer relationships with personalized communication, loyalty programs, and retention campaigns.</p>
+        <ul class="features-list">
+          <li>Personalized communication sequences</li>
+          <li>Loyalty program management</li>
+          <li>Birthday and anniversary recognition</li>
+          <li>Service reminder automation</li>
+          <li>Referral program tracking</li>
+          <li>Customer lifecycle management</li>
+        </ul>
+      </div>
+
+      <div class="solution-card">
+        <div class="solution-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="solution-title">Inventory Management AI</h3>
+        <p class="solution-description">Optimize inventory levels and pricing with AI-driven demand forecasting and market analysis.</p>
+        <ul class="features-list">
+          <li>Demand forecasting algorithms</li>
+          <li>Optimal inventory level recommendations</li>
+          <li>Dynamic pricing strategies</li>
+          <li>Market trend analysis</li>
+          <li>Competitor price monitoring</li>
+          <li>Automated reorder suggestions</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+      <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #fff;">Proven Results</h3>
+      <p style="color: #a0a0a0; margin-bottom: 2rem;">Dealerships using our AI automation solutions see significant improvements across all key metrics</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">47%</div>
+          <div class="stat-label">Increase in Lead Response Time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">34%</div>
+          <div class="stat-label">Higher Conversion Rates</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">28%</div>
+          <div class="stat-label">Reduction in Operational Costs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">89%</div>
+          <div class="stat-label">Customer Satisfaction Score</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #fff;">Ready to Transform Your Dealership?</h3>
+      <p style="color: #a0a0a0; margin-bottom: 2rem;">Join hundreds of automotive businesses already using our AI automation solutions</p>
+      <a href="../index.html#contact" class="btn btn-primary">
+        <i class="fas fa-rocket"></i>
+        Get Started Today
+      </a>
+      <a href="../index.html#pricing" class="btn btn-secondary">
+        <i class="fas fa-info-circle"></i>
+        View Pricing
+      </a>
+    </div>
+  </section>
+
+  </script>
+
+  <!-- AI Chatbot -->
+  <div id="chatbot-widget" class="chatbot-widget">
+    <div class="chatbot-toggle" onclick="chatbot.toggleChat()">
+      <i class="fas fa-robot"></i>
+    </div>
+    
+    <div id="chatbot-container" class="chatbot-container">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-info">
+          <h3>Metaphortech AI Assistant</h3>
+          <p>Ask me about our automotive automation solutions!</p>
+        </div>
+        <button class="chatbot-close" onclick="chatbot.toggleChat()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="bot-message">
+          <div class="message-content">
+            <p>Hello! I'm here to help you with our automotive automation solutions. How can I assist you today?</p>
+          </div>
+        </div>
+        
+        <div class="quick-replies">
+          <button class="quick-reply" data-query="Tell me about automotive automation">Automotive Automation</button>
+          <button class="quick-reply" data-query="How much does it cost?">Pricing</button>
+          <button class="quick-reply" data-query="Request a demo">Request Demo</button>
+        </div>
+      </div>
+      
+      <div class="chatbot-input">
+        <input type="text" id="chatbot-input-field" placeholder="Type your message..." onkeypress="if(event.key === 'Enter') chatbot.sendMessage()">
+        <button onclick="chatbot.sendMessage()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .chatbot-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .chatbot-toggle {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      color: white;
+      font-size: 24px;
+    }
+
+    .chatbot-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .chatbot-container {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 500px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chatbot-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chatbot-avatar {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .chatbot-info h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .chatbot-info p {
+      margin: 5px 0 0 0;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .chatbot-close {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 5px;
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .bot-message, .user-message {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .bot-message {
+      justify-content: flex-start;
+    }
+
+    .user-message {
+      justify-content: flex-end;
+    }
+
+    .message-content {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .bot-message .message-content {
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    .user-message .message-content {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quick-reply {
+      background: #f0f2f5;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #333;
+    }
+
+    .quick-reply:hover {
+      background: #e4e6e9;
+      transform: translateY(-1px);
+    }
+
+    .chatbot-input {
+      padding: 20px;
+      border-top: 1px solid #eee;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    #chatbot-input-field {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    #chatbot-input-field:focus {
+      border-color: #667eea;
+    }
+
+    .chatbot-input button {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-input button:hover {
+      transform: scale(1.1);
+    }
+
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background: #f8f9fa;
+      border-radius: 18px;
+      max-width: 80%;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background: #999;
+      border-radius: 50%;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes typing {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .chatbot-container {
+        width: 300px;
+        height: 450px;
+        right: -10px;
+      }
+    }
+  </style>
+
+  <script>
+    class MetaphortechChatbot {
+      constructor() {
+        this.isOpen = false;
+        this.faqs = {
+          'automotive automation': {
+            response: "Our automotive automation solutions include:\n\n• Lead management and qualification\n• Customer service automation\n• Inventory management and pricing\n• Service appointment scheduling\n• Customer retention programs\n• Sales process optimization\n\nThese solutions help dealerships increase sales, improve customer satisfaction, and reduce operational costs.",
+            followUp: "Would you like to know about a specific feature or request a demo?"
+          },
+          'pricing': {
+            response: "For detailed pricing information tailored to your specific needs, please fill out our contact form. Our sales team will get back to you promptly to discuss the best plan for your business.",
+            followUp: "Would you like me to help you find the contact form?"
+          },
+          'demo': {
+            response: "I'd be happy to help you request a demo! Please fill out our contact form with your details and mention that you're interested in an automotive automation demo. Our team will schedule a personalized demonstration for you.",
+            followUp: "Would you like me to help you find the contact form?"
+          },
+          'contact': {
+            response: "You can reach us through our contact form on the main page, or directly at:\n\n• Phone: (416) 871-1217\n• Email: info@metaphortech.com\n• Address: Toronto, Ontario, Canada",
+            followUp: "Is there anything specific you'd like to discuss?"
+          },
+          'features': {
+            response: "Our automotive automation features include:\n\n• AI-powered lead management\n• Automated customer service\n• Inventory optimization\n• Service scheduling\n• Customer retention automation\n• Sales process automation\n• Performance analytics\n• Integration with existing systems",
+            followUp: "Which feature interests you most?"
+          }
+        };
+      }
+
+      toggleChat() {
+        const container = document.getElementById('chatbot-container');
+        this.isOpen = !this.isOpen;
+        container.style.display = this.isOpen ? 'flex' : 'none';
+      }
+
+      addBotMessage(message) {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'bot-message';
+        messageDiv.innerHTML = `
+          <div class="message-content">
+            <p>${message.replace(/\n/g, '<br>')}</p>
+          </div>
+        `;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      addUserMessage(message) {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'user-message';
+        messageDiv.innerHTML = `
+          <div class="message-content">
+            <p>${message}</p>
+          </div>
+        `;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      showTypingIndicator() {
+        const messagesContainer = document.getElementById('chatbot-messages');
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'bot-message typing-indicator-container';
+        typingDiv.innerHTML = `
+          <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        `;
+        messagesContainer.appendChild(typingDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        return typingDiv;
+      }
+
+      hideTypingIndicator(typingDiv) {
+        if (typingDiv && typingDiv.parentNode) {
+          typingDiv.parentNode.removeChild(typingDiv);
+        }
+      }
+
+      async processMessage(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        // Check for business-specific FAQs first
+        if (lowerMessage.includes('automotive') || lowerMessage.includes('car') || lowerMessage.includes('dealership') || lowerMessage.includes('vehicle')) {
+          this.addBotMessage("Our automotive automation solution specifically helps with:\n\n• Lead management and qualification\n• Customer service automation\n• Inventory management and pricing\n• Service appointment scheduling\n• Customer retention programs\n• Sales process optimization");
+          setTimeout(() => {
+            this.addBotMessage("Would you like to know about a specific feature or request a demo?");
+          }, 2000);
+        }
+        else if (lowerMessage.includes('cost') || lowerMessage.includes('price') || lowerMessage.includes('pricing')) {
+          this.addBotMessage(this.faqs['pricing'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['pricing'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('demo') || lowerMessage.includes('demonstration')) {
+          this.addBotMessage(this.faqs['demo'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['demo'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('contact') || lowerMessage.includes('phone') || lowerMessage.includes('email')) {
+          this.addBotMessage(this.faqs['contact'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['contact'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('feature') || lowerMessage.includes('capability') || lowerMessage.includes('what can')) {
+          this.addBotMessage(this.faqs['features'].response);
+          setTimeout(() => {
+            this.addBotMessage(this.faqs['features'].followUp);
+          }, 2000);
+        }
+        else if (lowerMessage.includes('how are you') || lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+          const friendlyResponse = this.getFriendlyResponse(message);
+          this.addBotMessage(friendlyResponse);
+        }
+        else {
+          // Use LLM for general conversation
+          try {
+            const response = await this.getLLMResponse(message);
+            this.addBotMessage(response);
+          } catch (error) {
+            // Fallback to default response if LLM fails
+            this.addBotMessage("I understand you're asking about: '" + message + "'. Let me help you with that. Could you please be more specific about what you'd like to know? You can ask about:\n\n• Our automotive automation solutions\n• Specific features and capabilities\n• Requesting a demo\n• Contact information\n• Pricing information");
+          }
+        }
+      }
+
+      async getLLMResponse(message) {
+        const API_URL = 'https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium';
+        try {
+          const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              inputs: message,
+              parameters: {
+                max_length: 100,
+                temperature: 0.7,
+                do_sample: true
+              }
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error('LLM API request failed');
+          }
+
+          const data = await response.json();
+          let llmResponse = data[0]?.generated_text || 'I understand your question. Let me help you with that.';
+          
+          // Clean up the response
+          llmResponse = llmResponse.replace(/^[^:]*:\s*/, ''); // Remove prefix if present
+          llmResponse = llmResponse.trim();
+          
+          if (llmResponse.length < 10) {
+            return "I understand your question. Let me help you with that. Could you please be more specific about what you'd like to know about our automotive automation solutions?";
+          }
+          
+          return llmResponse;
+        } catch (error) {
+          console.error('LLM API Error:', error);
+          throw error;
+        }
+      }
+
+      getFriendlyResponse(message) {
+        const responses = [
+          "Hello! I'm doing great, thank you for asking! How can I help you with our automotive automation solutions today?",
+          "Hi there! I'm here and ready to assist you with any questions about our AI automation services for dealerships.",
+          "Hello! I'm functioning perfectly and excited to help you explore how AI can transform your automotive business.",
+          "Hi! I'm doing well, thanks! What would you like to know about our automotive automation solutions?"
+        ];
+        return responses[Math.floor(Math.random() * responses.length)];
+      }
+
+      sendMessage() {
+        const input = document.getElementById('chatbot-input-field');
+        const message = input.value.trim();
+        if (message) {
+          this.addUserMessage(message);
+          this.processMessage(message).catch(error => {
+            console.error('Error processing message:', error);
+            this.addBotMessage("I apologize, but I'm having trouble processing your request right now. Please try asking about our automotive automation solutions, pricing, or request a demo!");
+          });
+          input.value = '';
+        }
+      }
+    }
+
+    // Initialize chatbot
+    const chatbot = new MetaphortechChatbot();
+
+    // Quick reply functionality
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('quick-reply')) {
+        const query = e.target.dataset.query;
+        chatbot.addUserMessage(query);
+        chatbot.processMessage(query).catch(error => {
+          console.error('Error processing quick reply:', error);
+          chatbot.addBotMessage("I apologize, but I'm having trouble processing your request right now. Please try asking about our automotive automation solutions, pricing, or request a demo!");
+        });
+      }
+    });
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+      } else {
+        navbar.style.background = 'rgba(0, 0, 0, 0.8)';
+      }
+    });
+  </script>
+</body>
+</html> 

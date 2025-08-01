@@ -1,0 +1,3 @@
+# This is a placeholder for the favicon.ico file
+# In a real implementation, this would be a proper .ico file
+# For now, this ensures the website doesn't show 404 errors for favicon requests 
