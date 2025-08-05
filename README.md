@@ -24,6 +24,11 @@ A modern, fully functional website for Metaphortech Inc., featuring AI workflow 
 - ✅ Newsletter subscription system
 - ✅ Demo request functionality integrated into contact form
 - ✅ AI Chatbot with FAQ support and LLM integration
+- ✅ **VAPI AI Agent for inbound calls**
+- ✅ **Twilio phone integration**
+- ✅ **Call logging and analytics**
+- ✅ **Voice-to-text transcription**
+- ✅ **Automated demo scheduling via voice**
 - ✅ Analytics tracking
 - ✅ Admin statistics endpoint
 - ✅ Health check endpoint
@@ -48,11 +53,21 @@ A modern, fully functional website for Metaphortech Inc., featuring AI workflow 
 3. **Configure environment variables**
    ```bash
    # Copy the example environment file
-   cp env.example .env
+   cp .env.example .env
    
-   # Edit .env with your email credentials
+   # Edit .env with your credentials
    EMAIL_USER=your-email@gmail.com
    EMAIL_PASS=your-app-password
+   
+   # VAPI Configuration (for AI voice agent)
+   VAPI_API_KEY=your-vapi-api-key
+   VAPI_ASSISTANT_ID=your-vapi-assistant-id
+   VAPI_PHONE_NUMBER_ID=your-vapi-phone-number-id
+   
+   # Twilio Configuration (for phone integration)
+   TWILIO_ACCOUNT_SID=your-twilio-account-sid
+   TWILIO_AUTH_TOKEN=your-twilio-auth-token
+   TWILIO_PHONE_NUMBER=+1234567890
    ```
 
 4. **Start the development server**
@@ -82,6 +97,7 @@ The application uses SQLite for data storage. The database file (`database.sqlit
 - `contacts` - Contact form submissions (includes demo requests)
 - `subscribers` - Newsletter subscribers
 - `analytics` - Page view tracking
+- `call_logs` - VAPI call logs with transcripts and AI responses
 
 ## 🔧 API Endpoints
 
@@ -97,9 +113,14 @@ The application uses SQLite for data storage. The database file (`database.sqlit
 ### Analytics
 - **POST** `/api/analytics` - Track page views
 
+### VAPI & Twilio Integration
+- **POST** `/api/vapi/webhook` - VAPI webhook for call events
+- **POST** `/api/vapi/call/start` - Start outbound call via VAPI
+- **GET** `/api/vapi/calls` - Get call history from VAPI
+
 ### Admin
 - **GET** `/api/admin/stats` - Get basic statistics
-- **GET** `/api/health` - Health check endpoint
+- **GET** `/api/health` - Health check endpoint (includes integration status)
 
 ## 🎨 Customization
 

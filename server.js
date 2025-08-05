@@ -6,10 +6,22 @@ const nodemailer = require('nodemailer');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const compression = require('compression');
+const twilio = require('twilio');
+const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// VAPI and Twilio configuration
+const VAPI_API_KEY = process.env.VAPI_API_KEY;
+const VAPI_ASSISTANT_ID = process.env.VAPI_ASSISTANT_ID;
+const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID;
+const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
+const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
+
+// Initialize Twilio client
+const twilioClient = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
 // Security middleware
 app.use(helmet({
@@ -91,6 +103,20 @@ function initDatabase() {
       ip_address TEXT,
       user_agent TEXT,
       timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`);
+
+    // Call logs table
+    db.run(`CREATE TABLE IF NOT EXISTS call_logs (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      call_id TEXT UNIQUE,
+      caller_number TEXT,
+      call_status TEXT,
+      call_duration INTEGER,
+      transcript TEXT,
+      ai_response TEXT,
+      call_started_at DATETIME,
+      call_ended_at DATETIME,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )`);
   });
 }
@@ -257,14 +283,278 @@ app.get('/api/admin/stats', (req, res) => {
   }
 });
 
+// VAPI Webhook endpoints
+app.post('/api/vapi/webhook', express.raw({type: 'application/json'}), async (req, res) => {
+  try {
+    const event = JSON.parse(req.body.toString());
+    console.log('VAPI Webhook Event:', event.type, event);
+
+    switch (event.type) {
+      case 'call-start':
+        await handleCallStart(event);
+        break;
+      case 'call-end':
+        await handleCallEnd(event);
+        break;
+      case 'transcript':
+        await handleTranscript(event);
+        break;
+      case 'function-call':
+        await handleFunctionCall(event);
+        break;
+      default:
+        console.log('Unhandled VAPI event type:', event.type);
+    }
+
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error('VAPI Webhook Error:', error);
+    res.status(500).json({ error: 'Webhook processing failed' });
+  }
+});
+
+// VAPI call management endpoints
+app.post('/api/vapi/call/start', async (req, res) => {
+  try {
+    const { phoneNumber, assistantId } = req.body;
+    
+    if (!VAPI_API_KEY) {
+      return res.status(500).json({ error: 'VAPI not configured' });
+    }
+
+    const response = await axios.post('https://api.vapi.ai/call', {
+      phoneNumberId: process.env.VAPI_PHONE_NUMBER_ID,
+      assistantId: assistantId || VAPI_ASSISTANT_ID,
+      customer: {
+        number: phoneNumber
+      }
+    }, {
+      headers: {
+        'Authorization': `Bearer ${VAPI_API_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    res.json({ success: true, callId: response.data.id });
+  } catch (error) {
+    console.error('VAPI Call Start Error:', error.response?.data || error.message);
+    res.status(500).json({ error: 'Failed to start call' });
+  }
+});
+
+app.get('/api/vapi/calls', async (req, res) => {
+  try {
+    if (!VAPI_API_KEY) {
+      return res.status(500).json({ error: 'VAPI not configured' });
+    }
+
+    const response = await axios.get('https://api.vapi.ai/call', {
+      headers: {
+        'Authorization': `Bearer ${VAPI_API_KEY}`
+      }
+    });
+
+    res.json(response.data);
+  } catch (error) {
+    console.error('VAPI Get Calls Error:', error.response?.data || error.message);
+    res.status(500).json({ error: 'Failed to fetch calls' });
+  }
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'OK', 
     timestamp: new Date().toISOString(),
-    uptime: process.uptime()
+    uptime: process.uptime(),
+    integrations: {
+      vapi: !!VAPI_API_KEY,
+      twilio: !!TWILIO_ACCOUNT_SID,
+      email: !!process.env.EMAIL_USER
+    }
   });
 });
+
+// VAPI Webhook Handler Functions
+async function handleCallStart(event) {
+  try {
+    const { call } = event;
+    console.log('Call started:', call.id);
+    
+    // Save call start to database
+    const stmt = db.prepare(`
+      INSERT INTO call_logs (call_id, caller_number, call_status, call_started_at) 
+      VALUES (?, ?, ?, ?)
+    `);
+    
+    stmt.run([
+      call.id,
+      call.customer?.number || 'Unknown',
+      'started',
+      new Date().toISOString()
+    ]);
+  } catch (error) {
+    console.error('Error handling call start:', error);
+  }
+}
+
+async function handleCallEnd(event) {
+  try {
+    const { call } = event;
+    console.log('Call ended:', call.id);
+    
+    // Update call end in database
+    const stmt = db.prepare(`
+      UPDATE call_logs 
+      SET call_status = ?, call_ended_at = ?, call_duration = ?
+      WHERE call_id = ?
+    `);
+    
+    stmt.run([
+      'ended',
+      new Date().toISOString(),
+      call.duration || 0,
+      call.id
+    ]);
+
+    // Send email notification for important calls
+    if (call.duration > 60) { // Calls longer than 1 minute
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: 'info@metaphortech.com',
+        subject: 'AI Agent Call Summary - Metaphortech',
+        html: `
+          <h2>AI Agent Call Summary</h2>
+          <p><strong>Call ID:</strong> ${call.id}</p>
+          <p><strong>Caller:</strong> ${call.customer?.number || 'Unknown'}</p>
+          <p><strong>Duration:</strong> ${Math.floor(call.duration / 60)} minutes</p>
+          <p><strong>Status:</strong> ${call.status}</p>
+          <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
+        `
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error('Email error:', error);
+        } else {
+          console.log('Call summary email sent:', info.response);
+        }
+      });
+    }
+  } catch (error) {
+    console.error('Error handling call end:', error);
+  }
+}
+
+async function handleTranscript(event) {
+  try {
+    const { transcript, call } = event;
+    console.log('Transcript received for call:', call.id);
+    
+    // Update transcript in database
+    const stmt = db.prepare(`
+      UPDATE call_logs 
+      SET transcript = ?
+      WHERE call_id = ?
+    `);
+    
+    stmt.run([transcript.text, call.id]);
+  } catch (error) {
+    console.error('Error handling transcript:', error);
+  }
+}
+
+async function handleFunctionCall(event) {
+  try {
+    const { functionCall, call } = event;
+    console.log('Function call received:', functionCall.name);
+    
+    // Handle different function calls
+    switch (functionCall.name) {
+      case 'schedule_demo':
+        return await handleScheduleDemo(functionCall.parameters, call);
+      case 'transfer_to_human':
+        return await handleTransferToHuman(functionCall.parameters, call);
+      case 'get_business_hours':
+        return await handleGetBusinessHours();
+      default:
+        console.log('Unknown function call:', functionCall.name);
+        return { error: 'Unknown function' };
+    }
+  } catch (error) {
+    console.error('Error handling function call:', error);
+    return { error: 'Function call failed' };
+  }
+}
+
+async function handleScheduleDemo(parameters, call) {
+  try {
+    const { name, email, company, phone } = parameters;
+    
+    // Save demo request to database
+    const stmt = db.prepare(`
+      INSERT INTO demo_requests (name, email, company, phone, message) 
+      VALUES (?, ?, ?, ?, ?)
+    `);
+    
+    stmt.run([
+      name,
+      email,
+      company || '',
+      phone || call.customer?.number,
+      'Demo requested via AI agent call'
+    ]);
+
+    // Send email notification
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: 'sales@metaphortech.com',
+      subject: 'Demo Request from AI Agent Call - Metaphortech',
+      html: `
+        <h2>Demo Request from AI Agent</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+        <p><strong>Phone:</strong> ${phone || call.customer?.number}</p>
+        <p><strong>Call ID:</strong> ${call.id}</p>
+        <p><strong>⚠️ This request came from an AI agent call - please prioritize follow-up!</strong></p>
+      `
+    };
+
+    transporter.sendMail(mailOptions);
+
+    return { 
+      success: true, 
+      message: "Demo scheduled successfully. Our team will contact you within 24 hours." 
+    };
+  } catch (error) {
+    console.error('Error scheduling demo:', error);
+    return { error: 'Failed to schedule demo' };
+  }
+}
+
+async function handleTransferToHuman(parameters, call) {
+  try {
+    // In a real implementation, you would transfer the call to a human agent
+    // For now, we'll just log the request and provide a callback option
+    console.log('Transfer to human requested for call:', call.id);
+    
+    return { 
+      success: true, 
+      message: "I'm transferring you to a human agent. Please hold while I connect you, or we can schedule a callback if no agents are available." 
+    };
+  } catch (error) {
+    console.error('Error transferring to human:', error);
+    return { error: 'Transfer failed' };
+  }
+}
+
+async function handleGetBusinessHours() {
+  return {
+    success: true,
+    message: "Our business hours are Monday to Friday, 9 AM to 6 PM Eastern Time. We're closed on weekends and major holidays."
+  };
+}
 
  // Support page routes
  app.get('/support', (req, res) => {
@@ -347,7 +637,10 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`🌐 Access locally: http://localhost:${PORT}`);
   console.log(`🌐 Access from network: http://192.168.2.13:${PORT}`);
   console.log(`📧 Email notifications: ${process.env.EMAIL_USER ? 'Configured' : 'Not configured'}`);
+  console.log(`🤖 VAPI AI Agent: ${VAPI_API_KEY ? 'Configured' : 'Not configured'}`);
+  console.log(`📞 Twilio Integration: ${TWILIO_ACCOUNT_SID ? 'Configured' : 'Not configured'}`);
   console.log(`💾 Database: SQLite (./database.sqlite)`);
+  console.log(`🔗 VAPI Webhook: ${process.env.VAPI_WEBHOOK_URL || 'Not configured'}`);
 });
 
 // Graceful shutdown
