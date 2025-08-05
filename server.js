@@ -20,8 +20,16 @@ const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID;
 const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
 const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
 
-// Initialize Twilio client
-const twilioClient = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+// Initialize Twilio client only if credentials are provided
+let twilioClient = null;
+if (TWILIO_ACCOUNT_SID && TWILIO_AUTH_TOKEN) {
+  try {
+    twilioClient = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+    console.log('✅ Twilio client initialized successfully');
+  } catch (error) {
+    console.error('❌ Twilio initialization error:', error.message);
+  }
+}
 
 // Security middleware
 app.use(helmet({
@@ -286,7 +294,18 @@ app.get('/api/admin/stats', (req, res) => {
 // VAPI Webhook endpoints
 app.post('/api/vapi/webhook', express.raw({type: 'application/json'}), async (req, res) => {
   try {
-    const event = JSON.parse(req.body.toString());
+    if (!req.body) {
+      return res.status(400).json({ error: 'No request body provided' });
+    }
+
+    let event;
+    try {
+      event = JSON.parse(req.body.toString());
+    } catch (parseError) {
+      console.error('JSON Parse Error:', parseError.message);
+      return res.status(400).json({ error: 'Invalid JSON in request body' });
+    }
+
     console.log('VAPI Webhook Event:', event.type, event);
 
     switch (event.type) {
@@ -379,6 +398,11 @@ app.get('/api/health', (req, res) => {
 async function handleCallStart(event) {
   try {
     const { call } = event;
+    if (!call || !call.id) {
+      console.error('Invalid call data in call start event');
+      return;
+    }
+    
     console.log('Call started:', call.id);
     
     // Save call start to database
@@ -392,7 +416,13 @@ async function handleCallStart(event) {
       call.customer?.number || 'Unknown',
       'started',
       new Date().toISOString()
-    ]);
+    ], function(err) {
+      if (err) {
+        console.error('Database error in handleCallStart:', err);
+      } else {
+        console.log('Call start logged successfully:', call.id);
+      }
+    });
   } catch (error) {
     console.error('Error handling call start:', error);
   }
@@ -401,6 +431,11 @@ async function handleCallStart(event) {
 async function handleCallEnd(event) {
   try {
     const { call } = event;
+    if (!call || !call.id) {
+      console.error('Invalid call data in call end event');
+      return;
+    }
+    
     console.log('Call ended:', call.id);
     
     // Update call end in database
@@ -415,7 +450,13 @@ async function handleCallEnd(event) {
       new Date().toISOString(),
       call.duration || 0,
       call.id
-    ]);
+    ], function(err) {
+      if (err) {
+        console.error('Database error in handleCallEnd:', err);
+        return;
+      }
+      console.log('Call end logged successfully:', call.id);
+    });
 
     // Send email notification for important calls
     if (call.duration > 60) { // Calls longer than 1 minute
@@ -449,6 +490,11 @@ async function handleCallEnd(event) {
 async function handleTranscript(event) {
   try {
     const { transcript, call } = event;
+    if (!call || !call.id || !transcript) {
+      console.error('Invalid transcript data in event');
+      return;
+    }
+    
     console.log('Transcript received for call:', call.id);
     
     // Update transcript in database
@@ -458,7 +504,13 @@ async function handleTranscript(event) {
       WHERE call_id = ?
     `);
     
-    stmt.run([transcript.text, call.id]);
+    stmt.run([transcript.text || transcript, call.id], function(err) {
+      if (err) {
+        console.error('Database error in handleTranscript:', err);
+      } else {
+        console.log('Transcript updated successfully for call:', call.id);
+      }
+    });
   } catch (error) {
     console.error('Error handling transcript:', error);
   }
@@ -467,14 +519,19 @@ async function handleTranscript(event) {
 async function handleFunctionCall(event) {
   try {
     const { functionCall, call } = event;
+    if (!functionCall || !functionCall.name) {
+      console.error('Invalid function call data in event');
+      return { error: 'Invalid function call data' };
+    }
+    
     console.log('Function call received:', functionCall.name);
     
     // Handle different function calls
     switch (functionCall.name) {
       case 'schedule_demo':
-        return await handleScheduleDemo(functionCall.parameters, call);
+        return await handleScheduleDemo(functionCall.parameters || {}, call);
       case 'transfer_to_human':
-        return await handleTransferToHuman(functionCall.parameters, call);
+        return await handleTransferToHuman(functionCall.parameters || {}, call);
       case 'get_business_hours':
         return await handleGetBusinessHours();
       default:
@@ -491,6 +548,13 @@ async function handleScheduleDemo(parameters, call) {
   try {
     const { name, email, company, phone } = parameters;
     
+    // Validate required fields
+    if (!name || !email) {
+      return { 
+        error: 'Name and email are required to schedule a demo' 
+      };
+    }
+    
     // Save demo request to database
     const stmt = db.prepare(`
       INSERT INTO demo_requests (name, email, company, phone, message) 
@@ -501,27 +565,43 @@ async function handleScheduleDemo(parameters, call) {
       name,
       email,
       company || '',
-      phone || call.customer?.number,
+      phone || call?.customer?.number || 'Not provided',
       'Demo requested via AI agent call'
-    ]);
+    ], function(err) {
+      if (err) {
+        console.error('Database error in handleScheduleDemo:', err);
+      } else {
+        console.log('Demo request saved successfully for:', email);
+      }
+    });
 
-    // Send email notification
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: 'sales@metaphortech.com',
-      subject: 'Demo Request from AI Agent Call - Metaphortech',
-      html: `
-        <h2>Demo Request from AI Agent</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-        <p><strong>Phone:</strong> ${phone || call.customer?.number}</p>
-        <p><strong>Call ID:</strong> ${call.id}</p>
-        <p><strong>⚠️ This request came from an AI agent call - please prioritize follow-up!</strong></p>
-      `
-    };
+    // Send email notification if email is configured
+    if (process.env.EMAIL_USER && transporter) {
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: 'sales@metaphortech.com',
+        subject: 'Demo Request from AI Agent Call - Metaphortech',
+        html: `
+          <h2>Demo Request from AI Agent</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+          <p><strong>Phone:</strong> ${phone || call?.customer?.number || 'Not provided'}</p>
+          <p><strong>Call ID:</strong> ${call?.id || 'Unknown'}</p>
+          <p><strong>⚠️ This request came from an AI agent call - please prioritize follow-up!</strong></p>
+        `
+      };
 
-    transporter.sendMail(mailOptions);
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error('Email error in demo scheduling:', error);
+        } else {
+          console.log('Demo request email sent:', info.response);
+        }
+      });
+    } else {
+      console.log('Email not configured - demo request saved to database only');
+    }
 
     return { 
       success: true, 
